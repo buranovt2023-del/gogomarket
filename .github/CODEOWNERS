@@ -1,0 +1,21 @@
+
+# CODEOWNERS файл для автоматического назначения ревьюеров
+
+# Все файлы требуют ревью от владельцев
+* @buranovt2023-del
+
+# Документация
+/docs/ @buranovt2023-del
+
+# База данных и схемы
+/docs/technical/database_schema.md @buranovt2023-del
+/docs/technical/schema.sql @buranovt2023-del
+/platform/prisma/ @buranovt2023-del
+
+# Основной код приложения
+/platform/app/ @buranovt2023-del
+/platform/components/ @buranovt2023-del
+/platform/lib/ @buranovt2023-del
+
+# CI/CD конфигурация
+/.github/ @buranovt2023-del

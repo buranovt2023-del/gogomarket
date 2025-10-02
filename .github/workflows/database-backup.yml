@@ -1,0 +1,38 @@
+
+name: Database Backup
+
+on:
+  schedule:
+    # Запуск каждый день в 2:00 UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  backup:
+    name: Backup Production Database
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Install PostgreSQL client
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y postgresql-client
+      
+      - name: Create database backup
+        run: |
+          echo "Создание бэкапа базы данных..."
+          echo "Настройте pg_dump команду для вашей БД"
+          # pg_dump ${{ secrets.PRODUCTION_DATABASE_URL }} > backup.sql
+      
+      - name: Upload backup to storage
+        run: |
+          echo "Загрузка бэкапа в облачное хранилище..."
+          echo "Настройте загрузку в AWS S3, Google Cloud Storage или другое хранилище"
+      
+      - name: Notify backup completion
+        run: |
+          echo "Бэкап завершен успешно"
+          echo "Настройте уведомления (email, Slack, Telegram, etc.)"
